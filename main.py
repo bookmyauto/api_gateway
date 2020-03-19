@@ -83,5 +83,11 @@ def getDistance():
     return Response(response=response.content, headers=dict(response.headers))
 
 
+@app.route("/v1/bookingPath", methods=["GET"])
+def bookingPath():
+    response = requests.get("http://127.0.0.1:7004/v1/bookingPath", params=request.args, headers=request.headers)
+    return Response(response=response.content, headers=dict(response.headers))
+
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0', debug=True, port=443, ssl_context='adhoc')
